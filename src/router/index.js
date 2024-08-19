@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import PostView from '../views/PostView.vue'
+import PostCreateView from '../views/PostCreateVue.vue'
+import PostEditView from '../views/PostEditView'
+import PostUploadView from '../views/PostUploadView.vue'
 
 Vue.use(VueRouter)
 
@@ -8,15 +11,22 @@ const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: PostView
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
+    path: '/post/create',
+    name: 'postCreate',
+    component: PostCreateView
+  },
+  {
+    path: '/post/edit/:id',
+    name: 'postEdit',
+    component: PostEditView
+  },
+  {
+    path: '/post/upload',
+    name: 'postUpload',
+    component: PostUploadView
   }
 ]
 
